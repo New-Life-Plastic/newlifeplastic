@@ -1478,3 +1478,33 @@ grid-template-columns:1fr;
 }
 
 }
+
+/* Desktop */
+.slide{
+    background-size: cover;
+    background-position: center;
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+.slide{
+    background-size: cover;
+}
+
+/* Factory */
+.slide:nth-child(1){
+    background-position: center center;
+}
+
+/* NLP */
+.slide:nth-child(2){
+    background-position: 70% center;
+}
+
+/* Aung Ta Khon */
+.slide:nth-child(3){
+    background-position: 80% center;
+}
+
+}
