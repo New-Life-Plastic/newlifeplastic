@@ -1,328 +1,347 @@
 /*=========================================
-New Life Plastic Company
-Corporate Website
+ New Life Plastic Company
+ Corporate Website
 =========================================*/
 
-// ===============================
-// Hero Slider
-// ===============================
+document.addEventListener("DOMContentLoaded", () => {
 
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
-const nextBtn = document.querySelector(".next");
-const prevBtn = document.querySelector(".prev");
+    /*=========================
+      HERO SLIDER
+    =========================*/
 
-let currentSlide = 0;
-let autoSlide;
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+    const nextBtn = document.querySelector(".next");
+    const prevBtn = document.querySelector(".prev");
 
-// Show Slide
-function showSlide(index){
+    let currentSlide = 0;
+    let autoSlide = null;
 
-    slides.forEach(slide=>{
-        slide.classList.remove("active");
-    });
+    function showSlide(index) {
 
-    dots.forEach(dot=>{
-        dot.classList.remove("active");
-    });
+        slides.forEach(slide => slide.classList.remove("active"));
+        dots.forEach(dot => dot.classList.remove("active"));
 
-    slides[index].classList.add("active");
-    dots[index].classList.add("active");
-
-}
-
-// Next Slide
-function nextSlide(){
-
-    currentSlide++;
-
-    if(currentSlide >= slides.length){
-
-        currentSlide = 0;
-
+        if (slides[index]) slides[index].classList.add("active");
+        if (dots[index]) dots[index].classList.add("active");
     }
 
-    showSlide(currentSlide);
+    function nextSlide() {
 
-}
+        currentSlide++;
 
-// Previous Slide
-function prevSlide(){
-
-    currentSlide--;
-
-    if(currentSlide < 0){
-
-        currentSlide = slides.length-1;
-
-    }
-
-    showSlide(currentSlide);
-
-}
-
-// Auto Slider
-
-function startSlider(){
-
-    autoSlide = setInterval(()=>{
-
-        nextSlide();
-
-    },5000);
-
-}
-
-function stopSlider(){
-
-    clearInterval(autoSlide);
-
-}
-
-// Buttons
-
-if(nextBtn){
-
-nextBtn.addEventListener("click",()=>{
-
-    stopSlider();
-
-    nextSlide();
-
-    startSlider();
-
-});
-
-}
-
-if(prevBtn){
-
-prevBtn.addEventListener("click",()=>{
-
-    stopSlider();
-
-    prevSlide();
-
-    startSlider();
-
-});
-
-}
-
-// Dots
-
-dots.forEach((dot,index)=>{
-
-    dot.addEventListener("click",()=>{
-
-        stopSlider();
-
-        currentSlide=index;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
 
         showSlide(currentSlide);
 
+    }
+
+    function prevSlide() {
+
+        currentSlide--;
+
+        if (currentSlide < 0) {
+            currentSlide = slides.length - 1;
+        }
+
+        showSlide(currentSlide);
+
+    }
+
+    function startSlider() {
+
+        if (slides.length <= 1) return;
+
+        stopSlider();
+
+        autoSlide = setInterval(nextSlide, 5000);
+
+    }
+
+    function stopSlider() {
+
+        if (autoSlide) {
+            clearInterval(autoSlide);
+        }
+
+    }
+
+    if (slides.length > 0) {
+
+        showSlide(currentSlide);
         startSlider();
 
-    });
+    }
 
-});
+    if (nextBtn) {
 
-// Start Slider
+        nextBtn.addEventListener("click", () => {
 
-showSlide(currentSlide);
+            stopSlider();
+            nextSlide();
+            startSlider();
 
-startSlider();
-
-
-
-// ===============================
-// Sticky Header
-// ===============================
-
-const header=document.getElementById("header");
-
-window.addEventListener("scroll",()=>{
-
-    if(window.scrollY>80){
-
-        header.classList.add("active");
+        });
 
     }
 
-    else{
+    if (prevBtn) {
 
-        header.classList.remove("active");
+        prevBtn.addEventListener("click", () => {
+
+            stopSlider();
+            prevSlide();
+            startSlider();
+
+        });
 
     }
 
-});
+    dots.forEach((dot, index) => {
 
+        dot.addEventListener("click", () => {
 
+            currentSlide = index;
 
-// ===============================
-// Mobile Menu
-// ===============================
+            showSlide(currentSlide);
 
-const menuToggle=document.getElementById("menu-toggle");
+            stopSlider();
 
-const navMenu=document.querySelector(".nav-menu");
+            startSlider();
 
-menuToggle.addEventListener("click",()=>{
-
-    navMenu.classList.toggle("show");
-
-});
-
-
-
-// Close Menu
-
-document.querySelectorAll(".nav-menu a").forEach(link=>{
-
-    link.addEventListener("click",()=>{
-
-        navMenu.classList.remove("show");
+        });
 
     });
 
-});
+    /*=========================
+      STICKY HEADER
+    =========================*/
 
+    const header = document.getElementById("header");
 
+    function stickyHeader() {
 
-// ===============================
-// Reveal Animation
-// ===============================
+        if (!header) return;
 
-const reveals=document.querySelectorAll(".about-preview,.company-stats,.stat-box");
+        if (window.scrollY > 80) {
 
-function revealSection(){
+            header.classList.add("active");
 
-    const trigger=window.innerHeight-120;
+        } else {
 
-    reveals.forEach(item=>{
-
-        const top=item.getBoundingClientRect().top;
-
-        if(top<trigger){
-
-            item.classList.add("show");
+            header.classList.remove("active");
 
         }
 
-    });
-
-}
-
-window.addEventListener("scroll",revealSection);
-
-window.addEventListener("load",revealSection);
-
-
-
-// ===============================
-// Keyboard Slider
-// ===============================
-
-document.addEventListener("keydown",(e)=>{
-
-    if(e.key==="ArrowRight"){
-
-        stopSlider();
-
-        nextSlide();
-
-        startSlider();
-
     }
 
-    if(e.key==="ArrowLeft"){
+    window.addEventListener("scroll", stickyHeader);
 
-        stopSlider();
+    stickyHeader();
 
-        prevSlide();
+    /*=========================
+      MOBILE MENU
+    =========================*/
 
-        startSlider();
+    const menuToggle = document.getElementById("menu-toggle");
+    const navMenu = document.querySelector(".nav-menu");
 
-    }
+    if (menuToggle && navMenu) {
 
-});
+        menuToggle.addEventListener("click", () => {
 
+            navMenu.classList.toggle("show");
 
+        });
 
-// ===============================
-// Touch Swipe
-// ===============================
+        document.querySelectorAll(".nav-menu a").forEach(link => {
 
-let touchStartX=0;
+            link.addEventListener("click", () => {
 
-let touchEndX=0;
-
-const hero=document.querySelector(".hero");
-
-hero.addEventListener("touchstart",(e)=>{
-
-    touchStartX=e.changedTouches[0].screenX;
-
-});
-
-hero.addEventListener("touchend",(e)=>{
-
-    touchEndX=e.changedTouches[0].screenX;
-
-    if(touchStartX-touchEndX>50){
-
-        stopSlider();
-
-        nextSlide();
-
-        startSlider();
-
-    }
-
-    if(touchEndX-touchStartX>50){
-
-        stopSlider();
-
-        prevSlide();
-
-        startSlider();
-
-    }
-
-});
-
-
-
-// ===============================
-// Smooth Scroll
-// ===============================
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-
-    anchor.addEventListener("click",function(e){
-
-        e.preventDefault();
-
-        const target=document.querySelector(this.getAttribute("href"));
-
-        if(target){
-
-            target.scrollIntoView({
-
-                behavior:"smooth"
+                navMenu.classList.remove("show");
 
             });
 
+        });
+
+    }
+
+    /*=========================
+      REVEAL ANIMATION
+    =========================*/
+
+    const reveals = document.querySelectorAll(
+        ".about-preview,.company-stats,.stat-box"
+    );
+
+    function revealSection() {
+
+        const trigger = window.innerHeight - 120;
+
+        reveals.forEach(item => {
+
+            const top = item.getBoundingClientRect().top;
+
+            if (top < trigger) {
+
+                item.classList.add("show");
+
+            }
+
+        });
+
+    }
+
+    window.addEventListener("scroll", revealSection);
+
+    revealSection();
+
+    /*=========================
+      KEYBOARD CONTROL
+    =========================*/
+
+    document.addEventListener("keydown", (e) => {
+
+        if (!slides.length) return;
+
+        if (e.key === "ArrowRight") {
+
+            stopSlider();
+            nextSlide();
+            startSlider();
+
+        }
+
+        if (e.key === "ArrowLeft") {
+
+            stopSlider();
+            prevSlide();
+            startSlider();
+
         }
 
     });
 
+    /*=========================
+      TOUCH SWIPE
+    =========================*/
+
+    const hero = document.querySelector(".hero");
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    if (hero) {
+
+        hero.addEventListener("touchstart", (e) => {
+
+            touchStartX = e.changedTouches[0].screenX;
+
+        });
+
+        hero.addEventListener("touchend", (e) => {
+
+            touchEndX = e.changedTouches[0].screenX;
+
+            if (touchStartX - touchEndX > 60) {
+
+                stopSlider();
+                nextSlide();
+                startSlider();
+
+            }
+
+            if (touchEndX - touchStartX > 60) {
+
+                stopSlider();
+                prevSlide();
+                startSlider();
+
+            }
+
+        });
+
+    }
+
+    /*=========================
+      SMOOTH SCROLL
+    =========================*/
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+        anchor.addEventListener("click", function (e) {
+
+            const target = document.querySelector(this.getAttribute("href"));
+
+            if (!target) return;
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+        });
+
+    });
+
+    /*=========================
+      PAUSE WHEN TAB HIDDEN
+    =========================*/
+
+    document.addEventListener("visibilitychange", () => {
+
+        if (document.hidden) {
+
+            stopSlider();
+
+        } else {
+
+            startSlider();
+
+        }
+
+    });
+
+    /*=========================
+      BACK TO TOP
+    =========================*/
+
+    const topBtn = document.querySelector(".back-to-top");
+
+    if (topBtn) {
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 500) {
+
+                topBtn.classList.add("show");
+
+            } else {
+
+                topBtn.classList.remove("show");
+
+            }
+
+        });
+
+        topBtn.addEventListener("click", () => {
+
+            window.scrollTo({
+
+                top: 0,
+                behavior: "smooth"
+
+            });
+
+        });
+
+    }
+
+    console.log("New Life Plastic Website Loaded Successfully.");
+
 });
-
-
-
-// ===============================
-// Console
-// ===============================
-
-console.log("New Life Plastic Company Website Loaded");
