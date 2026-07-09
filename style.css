@@ -497,3 +497,47 @@ footer small {
     border-radius:20px;
     border:1px solid #eee;
 }
+
+.brand-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.brand-card{
+    background:#fff;
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+    border:1px solid #e5e7eb;
+    transition:.35s;
+}
+
+.brand-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 50px rgba(0,0,0,.08);
+}
+
+.brand-logo{
+    width:140px;
+    height:140px;
+    object-fit:contain;
+    margin-bottom:25px;
+}
+
+.brand-card h3{
+    color:#20C24A;
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.brand-card p{
+    color:#666;
+    margin-bottom:25px;
+    line-height:1.8;
+}
+
+.brand-card a{
+    color:#20C24A;
+    font-weight:700;
+}
