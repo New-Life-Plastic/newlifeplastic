@@ -1525,3 +1525,147 @@ MOBILE HERO
 }
 
 }
+
+/*=========================================
+BECOME OUR DEALER
+=========================================*/
+
+.cta{
+
+    padding:100px 20px;
+
+    background:linear-gradient(135deg,#0f5132,#22c55e);
+
+    color:#fff;
+
+    text-align:center;
+
+}
+
+.cta-content{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+.cta-content span{
+
+    display:inline-block;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+    font-weight:600;
+
+    color:#d1fae5;
+
+    margin-bottom:15px;
+
+}
+
+.cta-content h2{
+
+    font-size:48px;
+
+    margin-bottom:20px;
+
+}
+
+.cta-content p{
+
+    max-width:700px;
+
+    margin:0 auto 50px;
+
+    line-height:1.8;
+
+    color:rgba(255,255,255,.92);
+
+}
+
+.contact-info{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.contact-item{
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:18px;
+
+    padding:30px;
+
+    transition:.35s;
+
+}
+
+.contact-item:hover{
+
+    transform:translateY(-8px);
+
+    background:rgba(255,255,255,.18);
+
+}
+
+.contact-item i{
+
+    font-size:34px;
+
+    margin-bottom:18px;
+
+    color:#fff;
+
+}
+
+.contact-item h4{
+
+    margin-bottom:8px;
+
+    font-size:22px;
+
+}
+
+.contact-item p{
+
+    margin:0;
+
+    color:#eefdf4;
+
+    line-height:1.6;
+
+}
+
+@media(max-width:768px){
+
+.contact-info{
+
+    grid-template-columns:1fr;
+
+}
+
+.cta{
+
+    padding:80px 20px;
+
+}
+
+.cta-content h2{
+
+    font-size:34px;
+
+}
+
+}
