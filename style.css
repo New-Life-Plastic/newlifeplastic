@@ -1084,3 +1084,147 @@ RESPONSIVE
 }
 
 }
+
+/*=========================================
+MANUFACTURING PROCESS
+=========================================*/
+
+.process{
+
+    padding:100px 0;
+
+    background:#ffffff;
+
+}
+
+.process-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.process-card{
+
+    position:relative;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.4s;
+
+    overflow:hidden;
+
+}
+
+.process-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+
+}
+
+.process-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:#22c55e;
+
+}
+
+.number{
+
+    position:absolute;
+
+    top:18px;
+
+    right:20px;
+
+    font-size:38px;
+
+    font-weight:800;
+
+    color:#e5e7eb;
+
+}
+
+.process-card i{
+
+    font-size:58px;
+
+    color:#22c55e;
+
+    margin-bottom:25px;
+
+}
+
+.process-card h3{
+
+    font-size:24px;
+
+    color:#1f2937;
+
+    margin-bottom:15px;
+
+}
+
+.process-card p{
+
+    color:#6b7280;
+
+    line-height:1.8;
+
+}
+
+/*=========================
+Responsive
+=========================*/
+
+@media(max-width:991px){
+
+.process-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.process{
+
+padding:80px 0;
+
+}
+
+.process-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
