@@ -1086,6 +1086,124 @@ RESPONSIVE
 }
 
 /*=========================================
+VISION & MISSION
+=========================================*/
+
+.vision-mission{
+
+    padding:100px 0;
+
+    background:#ffffff;
+
+}
+
+.vm-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:40px;
+
+    margin-top:60px;
+
+}
+
+.vm-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:50px 40px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.4s;
+
+    border-top:5px solid #22c55e;
+
+}
+
+.vm-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+
+}
+
+.vm-icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    background:#22c55e;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.vm-icon i{
+
+    color:#fff;
+
+    font-size:38px;
+
+}
+
+.vm-card h3{
+
+    font-size:30px;
+
+    margin-bottom:20px;
+
+    color:#1f2937;
+
+}
+
+.vm-card p{
+
+    color:#6b7280;
+
+    line-height:1.9;
+
+    font-size:17px;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.vm-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.vm-card{
+
+padding:40px 25px;
+
+}
+
+}
+
+/*=========================================
 MANUFACTURING PROCESS
 =========================================*/
 
