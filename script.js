@@ -345,3 +345,61 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("New Life Plastic Website Loaded Successfully.");
 
 });
+
+/*=========================================
+COUNTER ANIMATION
+=========================================*/
+
+const counters = document.querySelectorAll(".counter");
+
+let counterStarted = false;
+
+function startCounter() {
+
+    if (counterStarted) return;
+
+    const section = document.querySelector(".company-stats");
+
+    const sectionTop = section.getBoundingClientRect().top;
+
+    if (sectionTop < window.innerHeight - 100) {
+
+        counterStarted = true;
+
+        counters.forEach(counter => {
+
+            const target = +counter.dataset.target;
+
+            let current = 0;
+
+            const increment = target / 100;
+
+            const updateCounter = () => {
+
+                current += increment;
+
+                if (current < target) {
+
+                    counter.innerText = Math.floor(current);
+
+                    requestAnimationFrame(updateCounter);
+
+                } else {
+
+                    counter.innerText = target;
+
+                }
+
+            };
+
+            updateCounter();
+
+        });
+
+    }
+
+}
+
+window.addEventListener("scroll", startCounter);
+
+window.addEventListener("load", startCounter);
