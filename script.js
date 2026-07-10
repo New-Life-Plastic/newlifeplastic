@@ -360,6 +360,8 @@ function startCounter() {
 
     const section = document.querySelector(".company-stats");
 
+    if (!section) return;
+
     const sectionTop = section.getBoundingClientRect().top;
 
     if (sectionTop < window.innerHeight - 100) {
@@ -368,31 +370,33 @@ function startCounter() {
 
         counters.forEach(counter => {
 
-            const target = +counter.dataset.target;
+            const target = parseInt(counter.dataset.target);
 
             let current = 0;
 
-            const increment = target / 100;
+            const speed = 200;
 
-            const updateCounter = () => {
+            const increment = target / speed;
+
+            function update() {
 
                 current += increment;
 
                 if (current < target) {
 
-                    counter.innerText = Math.floor(current);
+                    counter.textContent = Math.floor(current);
 
-                    requestAnimationFrame(updateCounter);
+                    requestAnimationFrame(update);
 
                 } else {
 
-                    counter.innerText = target;
+                    counter.textContent = target;
 
                 }
 
-            };
+            }
 
-            updateCounter();
+            update();
 
         });
 
@@ -401,5 +405,4 @@ function startCounter() {
 }
 
 window.addEventListener("scroll", startCounter);
-
 window.addEventListener("load", startCounter);
