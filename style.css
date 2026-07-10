@@ -1530,63 +1530,63 @@ MOBILE HERO
 BECOME OUR DEALER
 =========================================*/
 
-.cta{
+.dealer{
 
-    padding:100px 20px;
+    padding:100px 0;
 
-    background:linear-gradient(135deg,#0f5132,#22c55e);
+    background:#16a34a;
 
     color:#fff;
 
+}
+
+.dealer-header{
+
     text-align:center;
 
-}
+    max-width:760px;
 
-.cta-content{
-
-    max-width:900px;
-
-    margin:auto;
+    margin:0 auto 60px;
 
 }
 
-.cta-content span{
+.dealer-header span{
 
     display:inline-block;
 
-    font-size:14px;
+    color:#d9ffe5;
 
-    letter-spacing:2px;
+    letter-spacing:3px;
+
+    font-size:14px;
 
     font-weight:600;
 
-    color:#d1fae5;
-
-    margin-bottom:15px;
+    margin-bottom:18px;
 
 }
 
-.cta-content h2{
+.dealer-header h2{
 
-    font-size:48px;
+    font-size:56px;
 
     margin-bottom:20px;
 
+    font-weight:700;
+
 }
 
-.cta-content p{
+.dealer-header p{
 
-    max-width:700px;
-
-    margin:0 auto 50px;
+    font-size:18px;
 
     line-height:1.8;
 
-    color:rgba(255,255,255,.92);
+    color:#f5f5f5;
 
 }
 
-.contact-info{
+.dealer-contact{
 
     display:grid;
 
@@ -1594,58 +1594,124 @@ BECOME OUR DEALER
 
     gap:30px;
 
-    align-items:stretch;
-
 }
 
-.contact-item{
+.contact-box{
 
     background:rgba(255,255,255,.12);
 
-    border:1px solid rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.18);
 
     border-radius:18px;
 
-    padding:40px 30px;
-
-    min-height:300px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:flex-start;
-
-    align-items:center;
+    padding:35px 30px;
 
     text-align:center;
 
+    transition:.35s;
+
 }
 
-.contact-item i{
+.contact-box:hover{
+
+    transform:translateY(-8px);
+
+    background:rgba(255,255,255,.18);
+
+}
+
+.contact-box i{
 
     font-size:42px;
 
-    margin-bottom:25px;
+    margin-bottom:22px;
 
 }
 
-.contact-item h4{
+.contact-box h4{
 
-    font-size:28px;
+    font-size:26px;
 
-    margin-bottom:20px;
+    margin-bottom:15px;
+
+    font-weight:600;
 
 }
 
-.contact-item p{
+.contact-box p{
 
-    margin:0;
+    font-size:17px;
 
     line-height:1.8;
 
-    font-size:18px;
+    color:#fff;
 
-    word-break:break-word;
+}
+
+.contact-box a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+}
+
+.contact-box a:hover{
+
+    text-decoration:underline;
+
+}
+
+/*=========================================
+Responsive
+=========================================*/
+
+@media(max-width:992px){
+
+.dealer-contact{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.dealer{
+
+    padding:80px 20px;
+
+}
+
+.dealer-header h2{
+
+    font-size:38px;
+
+}
+
+.dealer-header p{
+
+    font-size:16px;
+
+}
+
+.contact-box{
+
+    padding:30px 25px;
+
+}
+
+.contact-box h4{
+
+    font-size:22px;
+
+}
+
+.contact-box p{
+
+    font-size:16px;
+
+}
 
 }
