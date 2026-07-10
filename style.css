@@ -1592,7 +1592,9 @@ BECOME OUR DEALER
 
     grid-template-columns:repeat(3,1fr);
 
-    gap:25px;
+    gap:30px;
+
+    align-items:stretch;
 
 }
 
@@ -1600,41 +1602,39 @@ BECOME OUR DEALER
 
     background:rgba(255,255,255,.12);
 
-    backdrop-filter:blur(10px);
-
     border:1px solid rgba(255,255,255,.15);
 
     border-radius:18px;
 
-    padding:30px;
+    padding:40px 30px;
 
-    transition:.35s;
+    min-height:300px;
 
-}
+    display:flex;
 
-.contact-item:hover{
+    flex-direction:column;
 
-    transform:translateY(-8px);
+    justify-content:flex-start;
 
-    background:rgba(255,255,255,.18);
+    align-items:center;
+
+    text-align:center;
 
 }
 
 .contact-item i{
 
-    font-size:34px;
+    font-size:42px;
 
-    margin-bottom:18px;
-
-    color:#fff;
+    margin-bottom:25px;
 
 }
 
 .contact-item h4{
 
-    margin-bottom:8px;
+    font-size:28px;
 
-    font-size:22px;
+    margin-bottom:20px;
 
 }
 
@@ -1642,30 +1642,10 @@ BECOME OUR DEALER
 
     margin:0;
 
-    color:#eefdf4;
+    line-height:1.8;
 
-    line-height:1.6;
+    font-size:18px;
 
-}
-
-@media(max-width:768px){
-
-.contact-info{
-
-    grid-template-columns:1fr;
-
-}
-
-.cta{
-
-    padding:80px 20px;
-
-}
-
-.cta-content h2{
-
-    font-size:34px;
-
-}
+    word-break:break-word;
 
 }
