@@ -1808,3 +1808,33 @@ PRODUCT CATALOG
     margin-bottom:30px;
 
 }
+
+/*=========================================
+CATALOG RESPONSIVE
+=========================================*/
+
+@media(max-width:992px){
+
+.catalog-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.catalog-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.catalog-card img{
+
+height:360px;
+
+}
+
+}
